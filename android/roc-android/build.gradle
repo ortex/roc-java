@@ -1,6 +1,6 @@
 plugins {
-    id 'maven-publish'
     id 'com.android.library'
+    id 'com.github.dcendents.android-maven'
     id 'com.jfrog.bintray'
     id 'de.mannodermaus.android-junit5'
 }
@@ -120,26 +120,25 @@ bintray {
     }
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            mavenJava(MavenPublication) {
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                name 'roc-android'
+                description 'Android library for Roc Toolkit'
+                url 'https://github.com/roc-streaming/roc-java'
 
-                pom {
-                    name = project.name
-                    packaging = 'aar'
-                    description = 'Android library for Roc Toolkit'
-                    url = 'https://github.com/roc-streaming/roc-java'
-                    licenses {
-                        license {
-                            name = 'MIT'
-                        }
+                licenses {
+                    license {
+                        name 'MIT'
                     }
-                    scm {
-                        connection = 'scm:git:https://github.com/roc-streaming/roc-java.git'
-                        developerConnection = 'scm:git:https://github.com/roc-streaming/roc-java.git'
-                        url = 'https://github.com/roc-streaming/roc-java'
-                    }
+                }
+
+                scm {
+                    connection 'scm:git:https://github.com/roc-streaming/roc-java.git'
+                    developerConnection 'scm:git:https://github.com/roc-streaming/roc-java.git'
+                    url 'https://github.com/roc-streaming/roc-java'
                 }
             }
         }
