@@ -9,54 +9,54 @@ branches:
     - /^v\d+\.\d+\.\d+$/
 
 stages:
-#  - name: Linux
-#  - name: macOS
+  - name: Linux
+  - name: macOS
   - name: Android
   - name: Release
     if: tag IS present
 
 jobs:
   include:
-    - stage: Linux
-      jdk: openjdk8
-    - stage: Linux
-      jdk: openjdk11
-    - stage: Linux
-      dist: xenial
-      jdk: openjdk8
-    - stage: Linux
-      dist: xenial
-      jdk: openjdk11
-    - stage: macOS
-      os: osx
-      osx_image: xcode10.1
-      language: generic
-      env:
-        - JAVA_VERSION=8
-      addons:
-        homebrew:
-          taps: adoptopenjdk/openjdk
-          casks: adoptopenjdk8
-          update: true
-    - stage: macOS
-      os: osx
-      osx_image: xcode10.1
-      jdk: openjdk11
-    - stage: macOS
-      os: osx
-      osx_image: xcode11.3
-      language: generic
-      env:
-        - JAVA_VERSION=8
-      addons:
-        homebrew:
-          taps: adoptopenjdk/openjdk
-          casks: adoptopenjdk8
-          update: true
-    - stage: macOS
-      os: osx
-      osx_image: xcode11.3
-      jdk: openjdk11
+#    - stage: Linux
+#      jdk: openjdk8
+#    - stage: Linux
+#      jdk: openjdk11
+#    - stage: Linux
+#      dist: xenial
+#      jdk: openjdk8
+#    - stage: Linux
+#      dist: xenial
+#      jdk: openjdk11
+#    - stage: macOS
+#      os: osx
+#      osx_image: xcode10.1
+#      language: generic
+#      env:
+#        - JAVA_VERSION=8
+#      addons:
+#        homebrew:
+#          taps: adoptopenjdk/openjdk
+#          casks: adoptopenjdk8
+#          update: true
+#    - stage: macOS
+#      os: osx
+#      osx_image: xcode10.1
+#      jdk: openjdk11
+#    - stage: macOS
+#      os: osx
+#      osx_image: xcode11.3
+#      language: generic
+#      env:
+#        - JAVA_VERSION=8
+#      addons:
+#        homebrew:
+#          taps: adoptopenjdk/openjdk
+#          casks: adoptopenjdk8
+#          update: true
+#    - stage: macOS
+#      os: osx
+#      osx_image: xcode11.3
+#      jdk: openjdk11
     - name: "android jdk8"
       stage: Android
       sudo: required
