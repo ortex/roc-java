@@ -43,6 +43,18 @@ If libroc is not in default path you can specify `ROC_INCLUDE_PATH` (path to roc
 
 Additional compilation and linking flags can be specified respectively with `CFLAGS` and `LDFLAGS` gradle system variables
 
+#### Android Release
+
+Release workflow:
+ * make github release with tag version `v-x.x.x`, e.g. `v-0.0.1`
+ * travis will run release stage and publish artifacts to bintray
+
+Followed env variables should be set in travis:
+ * `BINTRAY_USER` - bintray user
+ * `BINTRAY_KEY` - bintray user api key
+ * `BINTRAY_REPO` - bintray repository name
+ * `BINTRAY_REPO_ORG` - bintray organization name
+
 ## License
 
 [MIT](LICENSE)

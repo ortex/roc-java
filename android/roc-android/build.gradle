@@ -11,9 +11,9 @@ ext {
     androidNdkVersion = System.getProperty('NDK_VERSION') ?: System.getenv('NDK_VERSION')
     ROC_BASE_DIR = System.getProperty('ROC_BASE_DIR') ?: System.getenv('ROC_BASE_DIR')
     bintrayUser = System.getProperty('BINTRAY_USER') ?: System.getenv('BINTRAY_USER')
-    bintrayUserOrg = System.getProperty('BINTRAY_REPO_ORG') ?: System.getenv('BINTRAY_REPO_ORG')
     bintrayKey = System.getProperty('BINTRAY_KEY') ?: System.getenv('BINTRAY_KEY')
     bintrayRepo = System.getProperty('BINTRAY_REPO') ?: System.getenv('BINTRAY_REPO')
+    bintrayRepoOrg = System.getProperty('BINTRAY_REPO_ORG') ?: System.getenv('BINTRAY_REPO_ORG')
 }
 
 android {
@@ -110,7 +110,7 @@ bintray {
     pkg {
         repo = bintrayRepo
         name = project.name
-        userOrg = bintrayUserOrg
+        userOrg = bintrayRepoOrg
         configurations = ['archives']
         desc = 'Android library for Roc Toolkit'
         websiteUrl = 'https://github.com/roc-streaming/roc-java'
@@ -119,6 +119,12 @@ bintray {
         licenses = ["MIT"]
         publish = true
         publicDownloadNumbers = true
+
+        version {
+            gpg {
+                sign = true
+            }
+        }
     }
 }
 
