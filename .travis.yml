@@ -64,6 +64,9 @@ jobs:
         - docker
       env:
         - DIST=android JAVA_VERSION=8 ANDROID_API=28 ANDROID_BUILD_TOOLS_VERSION=28.0.3 ANDROID_NDK_VERSION=21.1.6352462 ROC_BASE_DIR=$HOME/roc
+      workspaces:
+        create:
+          name: android
 #    - name: "android jdk11"
 #      stage: Android
 #      sudo: required
@@ -73,6 +76,8 @@ jobs:
 #        - DIST=android JAVA_VERSION=11 ANDROID_API=28 ANDROID_BUILD_TOOLS_VERSION=28.0.3 ANDROID_NDK_VERSION=21.1.6352462 ROC_BASE_DIR=$HOME/roc
     - name: "android release"
       stage: Release
+      workspaces:
+        use: android
       services:
         - docker
       env:
