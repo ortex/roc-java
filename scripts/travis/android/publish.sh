@@ -9,6 +9,7 @@ docker run -t --rm --privileged --device /dev/kvm \
     --env BINTRAY_USER=$BINTRAY_USER \
     --env BINTRAY_KEY=$BINTRAY_KEY \
     --env BINTRAY_REPO=$BINTRAY_REPO \
+    --env BINTRAY_REPO_ORG=$BINTRAY_REPO_ORG \
     -v "${PWD}:${PWD}" -v $ROC_BASE_DIR:$ROC_BASE_DIR \
     -v android-sdk:/sdk -w "${PWD}" \
         rocproject/java-android:jdk$JAVA_VERSION \
