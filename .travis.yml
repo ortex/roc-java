@@ -67,6 +67,9 @@ jobs:
       workspaces:
         create:
           name: android
+          paths:
+            - android
+            - $ROC_BASE_DIR
 #    - name: "android jdk11"
 #      stage: Android
 #      sudo: required
